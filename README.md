@@ -27,3 +27,8 @@ https://amplitude.com/docs/apis/analytics/http-v2#keys-for-the-event-argument
 ```curl
 https://amplitude.com/docs/partners/create-an-event-ingestion-integration#test-and-submit-the-integration
 ```
+
+# How to use frontend app
+
+1. Replace API_KEY_PLACEHOLDER with your actual Amplitude api key
+2. open  frontend/index.html in your browser
