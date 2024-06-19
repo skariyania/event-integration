@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Smith",
+        "os_version": "15",
+        "variant": "ios",
+        "device_type": "mobile"
+    },
+    {
+        "name": "Jones",
+        "os_version": "12",
+        "variant": "android",
+        "device_type": "mobile"
+    },
+    {
+        "name": "Bob",
+        "os_version": "11",
+        "variant": "microsoft",
+        "device_type": "Desktop"
+    }
+]

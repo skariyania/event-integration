@@ -15,7 +15,7 @@ def exit_fn():
     print("exited")
 
 
-def send_amplitude_event(event_type: str):
+def send_amplitude_event(event_type: str, event_properties: dict):
     """sends amplitude event"""
     api_key = os.getenv("api_key")
     user_id = os.getenv("user_id")
@@ -23,7 +23,13 @@ def send_amplitude_event(event_type: str):
 
     data = {
         "api_key": api_key,
-        "events": [{"device_id": user_id, "event_type": event_type}],
+        "events": [
+            {
+                "user_id": user_id,
+                "event_type": event_type,
+                "event_properties": event_properties,
+            }
+        ],
     }
 
     response = requests.post(
@@ -41,6 +47,27 @@ def send_amplitude_event(event_type: str):
 
 if __name__ == "__main__":
     init()
-    send_amplitude_event(event_type="signup")
-    send_amplitude_event(event_type="onboarding")
+    events = [
+        {
+            "name": "Smith",
+            "os_version": "15",
+            "variant": "ios",
+            "device_type": "mobile",
+        },
+        {
+            "name": "Jones",
+            "os_version": "12",
+            "variant": "android",
+            "device_type": "mobile",
+        },
+        {
+            "name": "Bob",
+            "os_version": "11",
+            "variant": "microsoft",
+            "device_type": "Desktop",
+        },
+    ]
+    for index, ev in enumerate(events):
+        print("processing event ", index)
+        send_amplitude_event(event_type="signup", event_properties=ev)
     exit_fn()
